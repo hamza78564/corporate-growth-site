@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client"
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";

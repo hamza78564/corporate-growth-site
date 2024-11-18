@@ -1,19 +1,12 @@
 "use client";
-import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
-import {
-  faArrowLeft,
-  faArrowRight,
-  faBars,
-  faUserPlus,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import MapComponent from "../Map/page";
+
+import { useEffect, useState } from "react";
+
+
+
+
 import Message from "../message/page";
 export default function Contact() {
   const [inpVal, setInpVal] = useState({
@@ -26,6 +19,15 @@ export default function Contact() {
   const [showMessage, setShowMessage] = useState(false);
   const [finalMessage, setFinalMessage] = useState(false);
   const [classes, setClasses] = useState("form-group");
+  const [isClient, setIsClient] = useState(false); // حالة لتحديد إذا كان المكون في بيئة العميل
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   function validataForm() {
     const { firstName, lastName, email, subject, message } = inpVal;
@@ -122,7 +124,6 @@ export default function Contact() {
         </form>
 
         <div className="map">
-          <MapComponent />
         </div>
       </div>
       {showMessage && <Message onComplate={handleCompletion} />}

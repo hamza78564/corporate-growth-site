@@ -1,18 +1,13 @@
 "use client";
-import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
+import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import {
   faArrowLeft,
-  faArrowRight,
-  faBars,
-  faUserPlus,
-  faXmark,
+  faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 export default function Testimonials() {
   const [testimonial, settestimonial] = useState([
     { name: "Dora Bridges", work: "Project Manager" },
@@ -20,6 +15,16 @@ export default function Testimonials() {
     { name: "Brad Stevens", work: "Marketing Director" },
   ]);
   let [count, setCount] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   function handleArrowClick(dir) {
     setCount((prevIndex) => {
       let newIndex = prevIndex;

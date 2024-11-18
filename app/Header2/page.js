@@ -1,13 +1,11 @@
 "use client";
-import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faBars, faUserPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import { faBars, faUserPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 export default function Header2() {
   const navRef = useRef();
   function showBar() {

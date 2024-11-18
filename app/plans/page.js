@@ -1,20 +1,28 @@
 'use client'
-import Image from "next/image";
-import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/link";
-import Header from "../Header/page";
 import Header2 from "../Header2/page";
 import Contact from "../Contact/page";
 import Footer from "../Footer/page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 export default function Plans() {
-  let a = useRouter()
-  function oops() {
-    a.push('/oops')
+  const a = useRouter();
+  const [isClient, setIsClient] = useState(false); // حالة لتحديد إذا كان المكون في بيئة العميل
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
   }
+
+  function oops() {
+    a.push('/oops');
+  }
+
   return (
     <div className="plans">
       <Header2 />

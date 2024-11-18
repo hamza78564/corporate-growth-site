@@ -2,17 +2,23 @@
 import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faBars, faUserPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useRef } from "react";
-import Header from "../Header/page";
+import { useEffect, useState } from "react";
 import Header2 from "../Header2/page";
 import Contact from "../Contact/page";
 import Footer from "../Footer/page";
 
 export default function Projects() {
+  const [isClient, setIsClient] = useState(false); // حالة لتحديد إذا كان المكون في بيئة العميل
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="main-contentM">
       <Header2 />

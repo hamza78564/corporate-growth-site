@@ -1,12 +1,22 @@
-import Image from "next/image";
+"use client";
+
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Link from "next/link";
-import Header from "../Header/page";
 import Header2 from "../Header2/page";
 import Contact from "../Contact/page";
 import Footer from "../Footer/page";
+import { useEffect, useState } from "react";
 export default function Services() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="services">
       <Header2 />

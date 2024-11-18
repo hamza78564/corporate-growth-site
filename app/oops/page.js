@@ -1,18 +1,22 @@
 "use client";
-import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faBars, faUserPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useRef } from "react";
-import Header from "../Header/page";
+import { useEffect, useState } from "react";
 import Header2 from "../Header2/page";
-import { Content } from "next/font/google";
 import Footer from "../Footer/page";
 import Contact from "../Contact/page";
 export default function Opps() {
+  const [isClient, setIsClient] = useState(false); // حالة لتحديد إذا كان المكون في بيئة العميل
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div className="main">
       <Header2 />

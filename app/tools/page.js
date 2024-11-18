@@ -1,18 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowDownUpAcrossLine,
-  faArrowUp,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFolder,
-  faStar,
-  faCircleUser,
-  faBars,
-} from "@fortawesome/free-regular-svg-icons";
+
 import Header2 from "../Header2/page";
+import { faArrowDownUpAcrossLine, faArrowUp, faBars, faCircleUser, faFolder, faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function Tools() {
   const items = [
@@ -53,6 +44,15 @@ export default function Tools() {
   const [none, setNone] = useState(true);
   const [sort, setSort] = useState(true); // Default to sorting by name in ascending order
   const [sortByDate, setSortByDate] = useState(false);
+  const [isClient, setIsClient] = useState(false); // حالة لتحديد إذا كان المكون في بيئة العميل
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   // Handle sorting by name
   const handleSort = () => {
@@ -223,7 +223,7 @@ export default function Tools() {
         <div>
           <h1
             style={{
-              color: "#656514;",
+              color: "#656514",
               textAlign: "center",
               marginTop: "50px",
             }}

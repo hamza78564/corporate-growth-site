@@ -498,7 +498,8 @@ margin-top: 5%;
     position: relative;
     display: flex;
     align-items: flex-start;
-    justify-content: center
+    justify-content: center;
+    padding-top: 109px;
 }
 
 .contact .form {
@@ -862,9 +863,24 @@ margin-top: 5%;
   gap: 40px;
   margin-right: 10%;
 }
-
+@media (max-width:1353px){
+  .mainPlans .grid-plans{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media (max-width:875px){
+  .mainPlans .grid-plans{
+    grid-template-columns:1fr;
+    justify-items: center
+  }
+}
+@media (max-width:400px){
+  .mainPlans .grid-plans .son-grid{
+    width: 100% !important;
+  }
+}
 .mainPlans .grid-plans .son-grid{
-  width: 48vh;
+  width: 38vh;
   text-align: center;
   border: 1px solid #c8c8c8;
   padding: 40px 0;

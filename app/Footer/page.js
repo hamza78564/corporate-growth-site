@@ -1,20 +1,9 @@
 "use client";
-import Image from "next/image";
 import "../d.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
-import {
-  faArrowLeft,
-  faArrowRight,
-  faBars,
-  faUserPlus,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import MapComponent from "../Map/page";
-import Message from "../message/page";
 import { faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
 export default function Footer() {
   return (
